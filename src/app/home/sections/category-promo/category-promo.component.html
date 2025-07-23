@@ -1,0 +1,30 @@
+<section class="category-promo py-5" data-aos="fade-up">
+    <div class="container">
+        <div class="section-heading text-center mb-5">
+            <h2 class="section-title">Shop by Category</h2>
+        </div>
+
+        <div class="carousel-wrapper">
+            <!-- Hidden Buttons (still clickable for keyboard) -->
+            <button class="carousel-btn prev visually-hidden" (click)="prevSlide()"
+                [disabled]="isPrevDisabled">‹</button>
+
+            <div class="carousel-track">
+                <div class="category-card" *ngFor="let category of visibleCategories" data-aos="zoom-in-up">
+                    <img [src]="category.image" alt="{{ category.name }}" />
+                    <h5>{{ category.name }}</h5>
+                    <button class="btn btn-dark">Explore</button>
+                </div>
+            </div>
+
+            <button class="carousel-btn next visually-hidden" (click)="nextSlide()"
+                [disabled]="isNextDisabled">›</button>
+        </div>
+
+        <!-- Dot Indicators -->
+        <div class="carousel-indicators mt-4 text-center">
+            <span *ngFor="let dot of totalDots; let i = index" class="indicator-dot" [class.active]="i === currentIndex"
+                (click)="goToSlide(i)"></span>
+        </div>
+    </div>
+</section>

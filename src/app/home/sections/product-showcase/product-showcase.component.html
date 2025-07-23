@@ -1,0 +1,21 @@
+<section class="product-showcase py-5">
+    <div class="container">
+        <div class="section-heading text-center mb-5">
+            <h2 class="section-title">Featured Products</h2>
+        </div>
+
+        <ngb-carousel #carousel *ngIf="groupedProducts.length > 0" [interval]="0" [showNavigationIndicators]="true"
+            [showNavigationArrows]="true" (swipeleft)="onSwipeLeft()" (swiperight)="onSwipeRight()">
+            <ng-template ngbSlide *ngFor="let productGroup of groupedProducts">
+                <div class="carousel-item-wrapper">
+                    <div class="product-card text-center p-3" *ngFor="let product of productGroup">
+                        <img [src]="product.image" alt="{{ product.name }}" />
+                        <h5>{{ product.name }}</h5>
+                        <p class="price">{{ product.price }}</p>
+                        <button class="btn btn-dark">Add to Cart</button>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</section>
