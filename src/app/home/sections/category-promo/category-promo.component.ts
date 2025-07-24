@@ -7,12 +7,12 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class CategoryPromoComponent implements OnInit {
     categories = [
-        { name: 'Electronics', image: 'assets/images/categories/electronics.webp' },
-        { name: 'Fashion', image: 'assets/images/categories/fashion.webp' },
-        { name: 'Books', image: 'assets/images/categories/books.webp' },
-        { name: 'Fitness', image: 'assets/images/categories/fitness.webp' },
-        { name: 'Toys', image: 'assets/images/categories/toys.webp' },
-        { name: 'Home Decor', image: 'assets/images/categories/home.webp' },
+        { title: 'Electronics', image: 'assets/images/image1.webp' },
+        { title: 'Fashion', image: 'assets/images/image2.webp' },
+        { title: 'Books', image: 'assets/images/image3.webp' },
+        { title: 'Fitness', image: 'assets/images/image4.webp' },
+        { title: 'Toys', image: 'assets/images/image1.webp' },
+        { title: 'Home Decor', image: 'assets/images/image2.webp' },
     ];
 
     currentIndex = 0;
@@ -39,34 +39,43 @@ export class CategoryPromoComponent implements OnInit {
     }
 
     get visibleCategories() {
-        return this.categories.slice(this.currentIndex, this.currentIndex + this.cardsPerView);
+        const total = this.categories.length;
+        const end = this.currentIndex + this.cardsPerView;
+
+        if (end <= total) {
+            return this.categories.slice(this.currentIndex, end);
+        }
+
+        const firstPart = this.categories.slice(this.currentIndex);
+        const remaining = end - total;
+        const secondPart = this.categories.slice(0, remaining);
+        return [...firstPart, ...secondPart];
     }
 
     nextSlide() {
-        if (this.currentIndex + this.cardsPerView < this.categories.length) {
-            this.currentIndex++;
-        }
+        this.currentIndex = (this.currentIndex + 1) % this.categories.length;
     }
 
     prevSlide() {
-        if (this.currentIndex > 0) {
-            this.currentIndex--;
-        }
+        this.currentIndex =
+            (this.currentIndex - 1 + this.categories.length) % this.categories.length;
     }
 
     goToSlide(index: number) {
         this.currentIndex = index;
     }
 
-    get isPrevDisabled(): boolean {
-        return this.currentIndex === 0;
-    }
-
-    get isNextDisabled(): boolean {
-        return this.currentIndex + this.cardsPerView >= this.categories.length;
-    }
-
     get totalDots(): number[] {
-        return Array.from({ length: this.categories.length - this.cardsPerView + 1 }, (_, i) => i);
+        return this.categories.map((_, i) => i);
+    }
+
+    // Dot shows for the "focused"/first visible card
+    get activeDotIndex(): number {
+        return this.currentIndex;
+    }
+
+    get trackTransform(): string {
+        const percentage = -(this.currentIndex * (100 / this.cardsPerView));
+        return `translateX(${percentage}%)`;
     }
 }

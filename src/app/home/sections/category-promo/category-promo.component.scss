@@ -1,6 +1,6 @@
 .category-promo {
   background: linear-gradient(to right, #f7f7f7, #ffffff);
-  background-image: url('/assets/images/category-bg.webp'); // Optional image
+  background-image: url('/assets/images/category-bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,31 +9,17 @@
     display: flex;
     align-items: center;
     position: relative;
+    gap: 10px;
   }
 
-  .carousel-btn {
-    background: transparent;
-    border: none;
-    font-size: 1.8rem;
-    color: #333;
-    z-index: 2;
-    cursor: pointer;
-
-    &.visually-hidden {
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    &:disabled {
-      opacity: 0.2;
-    }
+  .carousel-window {
+    overflow: hidden;
+    flex: 1;
   }
 
   .carousel-track {
     display: flex;
-    overflow: hidden;
     transition: transform 0.5s ease-in-out;
-    flex: 1;
     gap: 20px;
   }
 
@@ -63,25 +49,41 @@
     }
   }
 
-  .carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
+  .carousel-btn {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #333;
+    z-index: 2;
+    cursor: pointer;
 
-    .indicator-dot {
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  .carousel-dots {
+    text-align: center;
+    margin-top: 16px;
+
+    span {
+      display: inline-block;
       width: 10px;
       height: 10px;
+      margin: 0 6px;
+      background-color: #ccc;
       border-radius: 50%;
-      background: #bbb;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background-color 0.3s;
 
       &.active {
-        background: #000;
+        background-color: #333;
       }
     }
   }
 
+  // Responsive Card Sizes
   @media (max-width: 991px) {
     .category-card {
       flex: 0 0 calc(100% / 2 - 20px);
@@ -93,4 +95,16 @@
       flex: 0 0 100%;
     }
   }
+
+  // Hide navigation buttons on small devices
+  .desktop-only {
+    display: inline-block;
+  }
+
+  @media (max-width: 991px) {
+    .desktop-only {
+      display: none;
+    }
+  }
 }
+  

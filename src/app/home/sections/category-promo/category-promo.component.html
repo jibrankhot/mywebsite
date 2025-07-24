@@ -5,26 +5,27 @@
         </div>
 
         <div class="carousel-wrapper">
-            <!-- Hidden Buttons (still clickable for keyboard) -->
-            <button class="carousel-btn prev visually-hidden" (click)="prevSlide()"
-                [disabled]="isPrevDisabled">‹</button>
+            <!-- Desktop-only buttons -->
+            <button class="carousel-btn prev desktop-only" (click)="prevSlide()">‹</button>
 
-            <div class="carousel-track">
-                <div class="category-card" *ngFor="let category of visibleCategories" data-aos="zoom-in-up">
-                    <img [src]="category.image" alt="{{ category.name }}" />
-                    <h5>{{ category.name }}</h5>
-                    <button class="btn btn-dark">Explore</button>
+            <div class="carousel-window">
+                <div class="carousel-track" [style.transform]="trackTransform">
+                    <div class="category-card" *ngFor="let category of categories" data-aos="zoom-in-up">
+                        <img [src]="category.image" alt="{{ category.title }}" />
+                        <h5>{{ category.title }}</h5>
+                        <button class="btn btn-dark">Explore</button>
+                    </div>
                 </div>
             </div>
 
-            <button class="carousel-btn next visually-hidden" (click)="nextSlide()"
-                [disabled]="isNextDisabled">›</button>
+            <button class="carousel-btn next desktop-only" (click)="nextSlide()">›</button>
         </div>
 
         <!-- Dot Indicators -->
-        <div class="carousel-indicators mt-4 text-center">
-            <span *ngFor="let dot of totalDots; let i = index" class="indicator-dot" [class.active]="i === currentIndex"
-                (click)="goToSlide(i)"></span>
+        <div class="carousel-dots">
+            <span *ngFor="let dot of totalDots; let i = index" [class.active]="i === activeDotIndex"
+                (click)="goToSlide(i)">
+            </span>
         </div>
     </div>
 </section>
