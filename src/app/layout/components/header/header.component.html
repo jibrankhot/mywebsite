@@ -1,5 +1,6 @@
 <header class="main-header shadow-sm">
     <div class="container d-flex justify-content-between align-items-center py-3">
+
         <!-- Logo -->
         <div class="logo d-flex align-items-center">
             <div class="logo-box me-2"></div>
@@ -9,6 +10,8 @@
         <!-- Navigation -->
         <nav class="main-nav d-flex align-items-center gap-4">
             <a routerLink="/" routerLinkActive="active">Home</a>
+
+            <!-- Shop Dropdown -->
             <div class="nav-item dropdown">
                 <a class="dropdown-toggle" role="button">Shop</a>
                 <ul class="dropdown-menu">
@@ -16,15 +19,20 @@
                     <li><a routerLink="/categories" routerLinkActive="active">Categories</a></li>
                 </ul>
             </div>
+
+            <!-- New Dropdown with Products -->
             <div class="nav-item dropdown mega-dropdown">
                 <a class="dropdown-toggle" role="button">New</a>
                 <div class="dropdown-menu mega-menu p-4 shadow">
                     <div class="row gx-4">
+
                         <!-- Product List -->
                         <div class="col-lg-8">
-                            <h6 class="fw-bold mb-3">News Product</h6>
+                            <h6 class="fw-bold mb-3">New Products</h6>
                             <div class="d-flex flex-wrap gap-3">
-                                <div *ngFor="let product of newProducts" class="d-flex align-items-center gap-3">
+                                <div *ngFor="let product of newProducts"
+                                    class="d-flex align-items-center gap-3 cursor-pointer"
+                                    (click)="onNewProductClick(product)">
                                     <img [src]="product.img" width="60" height="80" alt="Product" />
                                     <div>
                                         <p class="mb-0 fw-medium">{{ product.name }}</p>
@@ -34,16 +42,20 @@
                             </div>
                         </div>
 
-                        <!-- Featured Block -->
+                        <!-- Featured Product -->
                         <div class="col-lg-4">
                             <h6 class="fw-bold mb-2">{{ featuredProduct.title }}</h6>
                             <img [src]="featuredProduct.img" class="img-fluid mb-2" alt="Featured Product" />
+                            <h6 class="fw-bold mb-2">{{ featuredProduct.price }}</h6>
                             <p class="small text-muted">{{ featuredProduct.desc }}</p>
+                            <button class="btn btn-outline-dark btn-sm"
+                                (click)="onFeaturedProductClick(featuredProduct)">Shop Now</button>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Pages Dropdown -->
             <div class="nav-item dropdown">
                 <a class="dropdown-toggle" role="button">Pages</a>
                 <ul class="dropdown-menu">
@@ -51,11 +63,12 @@
                     <li><a routerLink="/faq" routerLinkActive="active">FAQ</a></li>
                 </ul>
             </div>
+
             <a routerLink="/blog" routerLinkActive="active">Blog</a>
             <a routerLink="/contact" routerLinkActive="active">Contact</a>
         </nav>
 
-        <!-- Right Side Icons -->
+        <!-- Header Icons -->
         <div class="header-icons d-flex gap-3 align-items-center">
             <fa-icon [icon]="faSearch"></fa-icon>
             <fa-icon [icon]="faHeart"></fa-icon>
