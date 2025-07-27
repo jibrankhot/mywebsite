@@ -1,13 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-    selector: 'app-product-showcase',
-    templateUrl: './product-showcase.component.html',
-    styleUrls: ['./product-showcase.component.scss']
+    selector: 'app-product-carousel',
+    templateUrl: './product-carousel.component.html',
+    styleUrls: ['./product-carousel.component.scss']
 })
-export class ProductShowcaseComponent implements OnInit {
+export class ProductCarouselComponent implements OnInit {
     @ViewChild('carousel', { static: false }) carousel!: NgbCarousel;
+    @Output() productSelected = new EventEmitter<any>();
 
     products = [
         {
@@ -47,5 +48,9 @@ export class ProductShowcaseComponent implements OnInit {
 
     onSwipeRight(): void {
         this.carousel.prev();
+    }
+
+    selectProduct(product: any): void {
+        this.productSelected.emit(product);
     }
 }

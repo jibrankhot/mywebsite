@@ -1,7 +1,7 @@
 <section class="category-promo py-5" data-aos="fade-up">
     <div class="container">
         <div class="section-heading text-center mb-5">
-            <h2 class="section-title">Shop by Category</h2>
+            <h2 class="section-title">Popular Category</h2>
         </div>
 
         <div class="carousel-wrapper">
@@ -13,7 +13,7 @@
                     <div class="category-card" *ngFor="let category of categories" data-aos="zoom-in-up">
                         <img [src]="category.image" alt="{{ category.title }}" />
                         <h5>{{ category.title }}</h5>
-                        <button class="btn btn-dark">Explore</button>
+                        <a [routerLink]="['/categories', category.title.toLowerCase()]" class="btn btn-dark">Explore</a>
                     </div>
                 </div>
             </div>

@@ -6,9 +6,11 @@
 
         <ngb-carousel #carousel *ngIf="groupedProducts.length > 0" [interval]="0" [showNavigationIndicators]="true"
             [showNavigationArrows]="true" (swipeleft)="onSwipeLeft()" (swiperight)="onSwipeRight()">
+
             <ng-template ngbSlide *ngFor="let productGroup of groupedProducts">
                 <div class="carousel-item-wrapper">
-                    <div class="product-card text-center p-3" *ngFor="let product of productGroup">
+                    <div class="product-card text-center p-3" *ngFor="let product of productGroup"
+                        (click)="selectProduct(product)">
                         <img [src]="product.image" alt="{{ product.name }}" />
                         <h5>{{ product.name }}</h5>
                         <p class="price">{{ product.price }}</p>
@@ -16,6 +18,7 @@
                     </div>
                 </div>
             </ng-template>
+
         </ngb-carousel>
     </div>
 </section>

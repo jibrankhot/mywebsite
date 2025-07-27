@@ -1,0 +1,21 @@
+<section class="featured-product-section" [@fadeIn]>
+    <div class="container">
+        <div class="featured-product-wrapper">
+
+            <div class="featured-img" *ngIf="product?.image">
+                <img [src]="product.image" [alt]="product.name" />
+            </div>
+
+            <div class="featured-details">
+                <h2>{{ product?.name }}</h2>
+                <p>{{ product?.desc }}</p>
+
+                <div class="btn-group">
+                    <button class="btn-outline primary">Shop Now</button>
+                    <button class="btn-outline" (click)="goBackToCarousel()">← Back to Products</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

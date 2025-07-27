@@ -1,3 +1,11 @@
 <app-hero></app-hero>
+<!-- Product Carousel Section -->
+<div #productCarousel>
+    <app-product-carousel (productSelected)="updateFeaturedProduct($event)"></app-product-carousel>
+</div>
 <app-category-promo></app-category-promo>
-<app-product-showcase></app-product-showcase>
+<!-- Featured Product Section -->
+<div #featuredSection>
+    <app-featured-product [product]="featuredProduct" (backToProducts)="scrollToCarousel()"></app-featured-product>
+
+</div>
