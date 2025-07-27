@@ -1,43 +1,69 @@
-<!-- 🔹 Top Info Bar -->
-<div class="top-bar d-none d-md-flex justify-content-between align-items-center px-4 py-2">
-    <div class="left-info">
-        <span>Welcome to our store!</span>
-    </div>
-    <div class="right-info">
-        <a href="#" class="me-3">USD $</a>
-        <a href="#" class="me-3">EN</a>
-        <a href="#" class="me-3">Login</a>
-        <a href="#">Register</a>
-    </div>
-</div>
+<header class="main-header shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+        <!-- Logo -->
+        <div class="logo d-flex align-items-center">
+            <div class="logo-box me-2"></div>
+            <h2 class="mb-0 fw-bold">Minimal</h2>
+        </div>
 
-<!-- 🔹 Main Navigation Bar -->
-<header class="main-header py-3 px-4">
-    <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap">
-        <!-- 🔸 Logo -->
-        <a class="logo fw-bold fs-4 text-dark text-decoration-none" href="/">
-            LEO<span class="text-primary">Minimal</span>
-        </a>
+        <!-- Navigation -->
+        <nav class="main-nav d-flex align-items-center gap-4">
+            <a routerLink="/" routerLinkActive="active">Home</a>
+            <div class="nav-item dropdown">
+                <a class="dropdown-toggle" role="button">Shop</a>
+                <ul class="dropdown-menu">
+                    <li><a routerLink="/products" routerLinkActive="active">All Products</a></li>
+                    <li><a routerLink="/categories" routerLinkActive="active">Categories</a></li>
+                </ul>
+            </div>
+            <div class="nav-item dropdown mega-dropdown">
+                <a class="dropdown-toggle" role="button">New</a>
+                <div class="dropdown-menu mega-menu p-4 shadow">
+                    <div class="row gx-4">
+                        <!-- Product List -->
+                        <div class="col-lg-8">
+                            <h6 class="fw-bold mb-3">News Product</h6>
+                            <div class="d-flex flex-wrap gap-3">
+                                <div *ngFor="let product of newProducts" class="d-flex align-items-center gap-3">
+                                    <img [src]="product.img" width="60" height="80" alt="Product" />
+                                    <div>
+                                        <p class="mb-0 fw-medium">{{ product.name }}</p>
+                                        <span class="text-muted">{{ product.price }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- 🔸 Navigation Menu -->
-        <nav class="nav-menu d-none d-lg-flex gap-4">
-            <a href="/" class="nav-link">Home</a>
-            <a href="/products" class="nav-link">Products</a>
-            <a href="/blog" class="nav-link">Blog</a>
-            <a href="/contact" class="nav-link">Contact</a>
+                        <!-- Featured Block -->
+                        <div class="col-lg-4">
+                            <h6 class="fw-bold mb-2">{{ featuredProduct.title }}</h6>
+                            <img [src]="featuredProduct.img" class="img-fluid mb-2" alt="Featured Product" />
+                            <p class="small text-muted">{{ featuredProduct.desc }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item dropdown">
+                <a class="dropdown-toggle" role="button">Pages</a>
+                <ul class="dropdown-menu">
+                    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+                    <li><a routerLink="/faq" routerLinkActive="active">FAQ</a></li>
+                </ul>
+            </div>
+            <a routerLink="/blog" routerLinkActive="active">Blog</a>
+            <a routerLink="/contact" routerLinkActive="active">Contact</a>
         </nav>
 
-        <!-- 🔸 Search + Cart -->
-        <div class="header-actions d-flex align-items-center gap-3">
-            <div class="search-box d-none d-md-block">
-                <input type="text" class="form-control form-control-sm" placeholder="Search...">
-            </div>
-            <div class="cart-icon position-relative">
-                <a href="/cart">
-                    <img src="assets/icons/cart.svg" width="24" alt="Cart">
-                </a>
-                <span class="cart-count">2</span>
+        <!-- Right Side Icons -->
+        <div class="header-icons d-flex gap-3 align-items-center">
+            <fa-icon [icon]="faSearch"></fa-icon>
+            <fa-icon [icon]="faHeart"></fa-icon>
+            <div class="bag-icon position-relative">
+                <fa-icon [icon]="faShoppingBag"></fa-icon>
+                <span class="badge">2</span>
             </div>
         </div>
+
     </div>
 </header>
