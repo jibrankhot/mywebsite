@@ -5,9 +5,12 @@ import {
   Input,
   Output,
   Renderer2,
-  AfterViewInit
+  AfterViewInit,
+  OnChanges,
+  SimpleChanges
 } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { Product } from '../../../models/product.model';
 
 @Component({
   selector: 'app-featured-product',
@@ -22,32 +25,46 @@ import { animate, style, transition, trigger } from '@angular/animations';
     ])
   ]
 })
-export class FeaturedProductComponent implements AfterViewInit {
-  @Input() product: any;
+export class FeaturedProductComponent implements AfterViewInit, OnChanges {
+  @Input() product!: Product;
   @Output() backToProducts = new EventEmitter<void>();
+  imageLoaded = false;
+  hasDescription = false;
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['product'] && this.product) {
+      this.hasDescription = !!this.product.desc?.trim();
+    }
+  }
+
   ngAfterViewInit() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    console.log('FeaturedProductComponent initialized:', this.product);
+
     const section = this.el.nativeElement.querySelector('.featured-product-section');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.renderer.addClass(section, 'animate-visible');
-          this.renderer.addClass(section, 'flash-focus');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.renderer.addClass(section, 'animate-visible');
+            this.renderer.addClass(section, 'flash-focus');
 
-          setTimeout(() => {
-            this.renderer.removeClass(section, 'flash-focus');
-          }, 1500);
-        }
-      });
-    }, { threshold: 0.3 });
+            setTimeout(() => {
+              this.renderer.removeClass(section, 'flash-focus');
+            }, 1500);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
 
     observer.observe(section);
   }
 
   goBackToCarousel() {
-    this.backToProducts.emit(); // Emit to parent (HomePageComponent)
+    this.backToProducts.emit();
   }
 }

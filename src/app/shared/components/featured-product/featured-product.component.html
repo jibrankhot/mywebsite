@@ -1,21 +1,32 @@
-<section class="featured-product-section" [@fadeIn]>
+<section class="featured-product-section" *ngIf="product" [@fadeIn] role="region" aria-label="Featured Product">
     <div class="container">
         <div class="featured-product-wrapper">
-
-            <div class="featured-img" *ngIf="product?.image">
-                <img [src]="product.image" [alt]="product.name" />
+            <!-- Product Image -->
+            <div class="featured-img" *ngIf="product.image">
+                <img [src]="product.image" [alt]="product.name" (load)="imageLoaded = true"
+                    [class.fade-in]="imageLoaded" [style.visibility]="imageLoaded ? 'visible' : 'hidden'" />
             </div>
 
+            <!-- Product Details -->
             <div class="featured-details">
-                <h2>{{ product?.name }}</h2>
-                <p>{{ product?.desc }}</p>
+                <h2>{{ product.name }}</h2>
+
+                <p *ngIf="product.desc; else noDesc">
+                    {{ product.desc }}
+                </p>
+                <ng-template #noDesc>
+                    <p class="no-desc">No description provided</p>
+                </ng-template>
+
+                <p class="price" *ngIf="product.price">
+                    <strong>Price:</strong> {{ product.price }}
+                </p>
 
                 <div class="btn-group">
-                    <button class="btn-outline primary">Shop Now</button>
-                    <button class="btn-outline" (click)="goBackToCarousel()">← Back to Products</button>
+                    <button class="btn btn-primary">Shop Now</button>
+                    <button class="btn btn-outline" (click)="goBackToCarousel()">← Back to Products</button>
                 </div>
             </div>
-
         </div>
     </div>
 </section>

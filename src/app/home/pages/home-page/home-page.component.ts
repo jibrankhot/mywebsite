@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-home-page',
@@ -10,25 +11,24 @@ export class HomePageComponent {
   @ViewChild('productCarousel') productCarousel!: ElementRef;
 
   // Default featured product
-  featuredProduct = {
+  featuredProduct: Product = {
+    id: 1,
     name: 'Summer Linen Shirt',
-    desc: 'Top pick from carousel selection. High-quality and popular choice.',
+    desc: 'Step into the new season with our effortlessly stylish outerwear collection, made for comfort and class.',
     image: 'assets/images/image1.webp',
     price: '₹1,999'
   };
 
-  /**
-   * When a product is selected from carousel
-   */
-  updateFeaturedProduct(product: any) {
+
+  updateFeaturedProduct(product: Product) {
     this.featuredProduct = {
+      id: product.id,
       name: product.name,
-      desc: 'Top pick from carousel selection. High-quality and popular choice.',
+      desc: product.desc,
       image: product.image,
       price: product.price
     };
 
-    // Scroll to featured section with highlight
     setTimeout(() => {
       const section = this.featuredSection?.nativeElement;
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -38,9 +38,6 @@ export class HomePageComponent {
     }, 150);
   }
 
-  /**
-   * Triggered from Featured section back button
-   */
   scrollToCarousel() {
     this.productCarousel?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
