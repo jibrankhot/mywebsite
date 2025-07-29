@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { faSearch, faHeart, faClone, faShoppingBag, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faHeart, faShoppingBag, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -8,20 +8,21 @@ import { faSearch, faHeart, faClone, faShoppingBag, faBars, faTimes } from '@for
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(private router: Router) { this.checkIsMobile(); }
+  constructor(private router: Router) {
+    this.checkIsMobile();
+  }
+
   faSearch = faSearch;
   faHeart = faHeart;
   faShoppingBag = faShoppingBag;
-  showMegaMenu = false;
-  isSticky = true;
-  isMobileMenuOpen = false;
   faBars = faBars;
   faTimes = faTimes;
 
   isMobile = false;
+  isMobileMenuOpen = false;
   activeDropdown: string | null = null;
 
-  @HostListener('window:resize', [])
+  @HostListener('window:resize')
   onResize() {
     this.checkIsMobile();
   }
@@ -39,26 +40,51 @@ export class HeaderComponent {
   isDropdownActive(menu: string): boolean {
     return this.isMobile && this.activeDropdown === menu;
   }
-  megaMenuCategories = [
-    {
-      title: 'Categories 1',
-      items: ['Smartphone', 'Fashion', 'Korean Style', 'Toys', 'Game Box']
-    },
-    {
-      title: 'Categories 2',
-      items: ['Accessories', 'Electronic', 'Watch Machine', 'Vegetable', 'Bread']
-    },
-    {
-      title: 'Categories 3',
-      items: ['Blender', 'Fruits', 'Leaves', 'Demonstrates', 'Computer']
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+    this.activeDropdown = null;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    const target = event.target as HTMLElement;
+    const clickedInsideNav = target.closest('nav.main-nav');
+    const clickedToggle = target.closest('.mobile-toggle');
+    if (!clickedInsideNav && !clickedToggle && this.isMobileMenuOpen) {
+      this.closeMobileMenu();
     }
-  ];
+  }
 
   newProducts = [
-    { name: 'Casual Striped Shirt', price: '$39.99', desc: 'Step into the new season with our effortlessly stylish outerwear collection, made for comfort and class.', img: 'assets/images/image1.webp' },
-    { name: 'Vintage Denim Jacket', price: '$59.00', desc: 'Step into the new season with our effortlessly stylish outerwear collection, made for comfort and class.', img: 'assets/images/image2.webp' },
-    { name: 'Floral Summer Dress', price: '$49.99', desc: 'Step into the new season with our effortlessly stylish outerwear collection, made for comfort and class.', img: 'assets/images/image3.webp' },
-    { name: 'Classic White Tee', price: '$19.99', desc: 'Step into the new season with our effortlessly stylish outerwear collection, made for comfort and class.', img: 'assets/images/image4.webp' }
+    {
+      name: 'Casual Striped Shirt',
+      price: '$39.99',
+      desc: 'Step into the new season with our effortlessly stylish outerwear collection, made for comfort and class.',
+      img: 'assets/images/image1.webp'
+    },
+    {
+      name: 'Vintage Denim Jacket',
+      price: '$59.00',
+      desc: 'Step into the new season with our effortlessly stylish outerwear collection, made for comfort and class.',
+      img: 'assets/images/image2.webp'
+    },
+    {
+      name: 'Floral Summer Dress',
+      price: '$49.99',
+      desc: 'Step into the new season with our effortlessly stylish outerwear collection, made for comfort and class.',
+      img: 'assets/images/image3.webp'
+    },
+    {
+      name: 'Classic White Tee',
+      price: '$19.99',
+      desc: 'Step into the new season with our effortlessly stylish outerwear collection, made for comfort and class.',
+      img: 'assets/images/image4.webp'
+    }
   ];
 
   featuredProduct = {
@@ -78,25 +104,6 @@ export class HeaderComponent {
   }
 
   onFeaturedProductClick(product: any) {
-    console.log('Featured Product Clicked:', product);
     this.router.navigate(['/product', product.id]);
-  }
-
-  toggleMobileMenu() {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
-  }
-
-  closeMobileMenu() {
-    this.isMobileMenuOpen = false;
-  }
-
-  @HostListener('document:click', ['$event'])
-  onClickOutside(event: Event) {
-    const target = event.target as HTMLElement;
-    const clickedInsideNav = target.closest('nav.main-nav');
-    const clickedToggle = target.closest('.mobile-toggle');
-    if (!clickedInsideNav && !clickedToggle && this.isMobileMenuOpen) {
-      this.closeMobileMenu();
-    }
   }
 }
