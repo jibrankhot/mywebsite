@@ -1,10 +1,9 @@
 .main-header {
   background-color: #fff;
   font-family: 'Poppins', sans-serif;
-
-  .top-bar {
-    border-bottom: 1px solid #eaeaea;
-  }
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
   .logo {
     h2 {
@@ -13,21 +12,25 @@
     }
 
     .logo-box {
-      width: 20px;
-      height: 20px;
-      background: #f7caca;
-      border: 2px solid #222;
+      width: 30px;
+      height: 30px;
+      background-color: #000;
+      border-radius: 5px;
       margin-right: 0.5rem;
     }
   }
 
   .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+
     a,
     .dropdown-toggle {
       text-decoration: none;
       color: #111;
       font-weight: 500;
-      position: relative;
 
       &:hover {
         color: #00a859;
@@ -106,7 +109,6 @@
   }
 
   .header-icons {
-    i,
     fa-icon {
       font-size: 1.1rem;
       color: #333;
@@ -136,108 +138,12 @@
 
   .mobile-toggle {
     display: none;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     cursor: pointer;
-  }
-
- @media (max-width: 768px) {
-  .main-nav {
-    display: none;
-    flex-direction: column;
-    background: #fff;
-    padding: 1rem;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-  }
-
-  .main-nav.open {
-    display: flex !important;
-  }
-
-  .mobile-toggle {
-    display: block;
     margin-right: 0.5rem;
   }
-}
-.main-header {
-  background: #fff;
-  z-index: 1000;
-  position: sticky;
-  top: 0;
 
-  .logo-box {
-    width: 30px;
-    height: 30px;
-    background-color: #000;
-    border-radius: 5px;
-  }
-
-  .mobile-toggle {
-    cursor: pointer;
-    font-size: 1.5rem;
-  }
-
-  nav.main-nav {
-    transition: transform 0.3s ease;
-  }
-
-  // Desktop view (default)
-  @media (min-width: 768px) {
-    nav.main-nav {
-      transform: none !important;
-      flex-direction: row;
-      position: static;
-      background: transparent;
-    }
-  }
-
-  // Mobile nav
-  @media (max-width: 767px) {
-    nav.main-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 250px;
-      background: #fff;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 2rem 1rem;
-      transform: translateX(-100%);
-      z-index: 999;
-
-      a, .dropdown-toggle {
-        padding: 0.5rem 0;
-        width: 100%;
-      }
-
-      &.open {
-        transform: translateX(0);
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .dropdown-menu,
-      .mega-menu {
-        position: static;
-        box-shadow: none;
-        padding: 0;
-      }
-
-      .nav-item {
-        width: 100%;
-      }
-    }
-  }
-}
-.main-header {
-  .main-nav {
-    transition: transform 0.3s ease-in-out;
-  }
-
+  // Responsive
   @media (max-width: 768px) {
     .main-nav {
       position: fixed;
@@ -247,13 +153,14 @@
       width: 260px;
       background: #fff;
       padding: 2rem 1rem;
-      display: flex;
       flex-direction: column;
+      align-items: flex-start;
       transform: translateX(-100%);
-      z-index: 1000;
       box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
 
-      a, .dropdown-toggle {
+      a,
+      .dropdown-toggle {
         width: 100%;
         padding: 0.75rem 0;
         text-align: left;
@@ -268,6 +175,10 @@
         margin-top: 0.5rem;
       }
 
+      .nav-item {
+        width: 100%;
+      }
+
       &.open {
         transform: translateX(0);
       }
@@ -275,14 +186,20 @@
 
     .mobile-toggle {
       display: block;
-      font-size: 1.6rem;
     }
 
     .dropdown-menu li a {
       padding-left: 1rem;
     }
   }
-}
 
-
+  // Desktop
+  @media (min-width: 769px) {
+    .main-nav {
+      transform: none !important;
+      position: static;
+      flex-direction: row;
+      background: transparent;
+    }
+  }
 }
