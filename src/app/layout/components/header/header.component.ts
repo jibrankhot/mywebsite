@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { faSearch, faHeart, faClone, faShoppingBag, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faHeart, faClone, faShoppingBag, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -16,10 +16,8 @@ export class HeaderComponent {
   isSticky = true;
   isMobileMenuOpen = false;
   faBars = faBars;
+  faTimes = faTimes;
 
-  toggleMobileMenu() {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
-  }
   isMobile = false;
   activeDropdown: string | null = null;
 
@@ -82,5 +80,23 @@ export class HeaderComponent {
   onFeaturedProductClick(product: any) {
     console.log('Featured Product Clicked:', product);
     this.router.navigate(['/product', product.id]);
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    const target = event.target as HTMLElement;
+    const clickedInsideNav = target.closest('nav.main-nav');
+    const clickedToggle = target.closest('.mobile-toggle');
+    if (!clickedInsideNav && !clickedToggle && this.isMobileMenuOpen) {
+      this.closeMobileMenu();
+    }
   }
 }

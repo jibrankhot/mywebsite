@@ -5,7 +5,7 @@
         <div class="d-flex align-items-center">
             <!-- Mobile Toggle Icon -->
             <div class="mobile-toggle d-md-none me-3" (click)="toggleMobileMenu()" aria-label="Toggle Navigation">
-                <fa-icon [icon]="faBars"></fa-icon>
+                <fa-icon [icon]="isMobileMenuOpen ? faTimes : faBars"></fa-icon>
             </div>
 
             <!-- Logo -->
@@ -16,7 +16,9 @@
         </div>
 
         <!-- Navigation -->
-        <nav class="main-nav d-flex align-items-center gap-4" [ngClass]="{ 'open': isMobileMenuOpen }">
+        <nav class="main-nav d-flex align-items-center gap-4" [ngClass]="{ 'open': isMobileMenuOpen }"
+            (click)="isMobileMenuOpen && closeMobileMenu()">
+
             <a routerLink="/" routerLinkActive="active">Home</a>
 
             <div class="nav-item dropdown">
