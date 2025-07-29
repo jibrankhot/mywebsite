@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { faSearch, faHeart, faClone, faShoppingBag, faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,7 +8,7 @@ import { faSearch, faHeart, faClone, faShoppingBag, faBars } from '@fortawesome/
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router) { this.checkIsMobile(); }
   faSearch = faSearch;
   faHeart = faHeart;
   faShoppingBag = faShoppingBag;
@@ -20,7 +20,27 @@ export class HeaderComponent {
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
+  isMobile = false;
+  activeDropdown: string | null = null;
 
+  @HostListener('window:resize', [])
+  onResize() {
+    this.checkIsMobile();
+  }
+
+  checkIsMobile() {
+    this.isMobile = window.innerWidth <= 768;
+  }
+
+  toggleDropdown(menu: string) {
+    if (this.isMobile) {
+      this.activeDropdown = this.activeDropdown === menu ? null : menu;
+    }
+  }
+
+  isDropdownActive(menu: string): boolean {
+    return this.isMobile && this.activeDropdown === menu;
+  }
   megaMenuCategories = [
     {
       title: 'Categories 1',
