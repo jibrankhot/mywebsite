@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { faSearch, faHeart, faClone, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faHeart, faClone, faShoppingBag, faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +14,12 @@ export class HeaderComponent {
   faShoppingBag = faShoppingBag;
   showMegaMenu = false;
   isSticky = true;
+  isMobileMenuOpen = false;
+  faBars = faBars;
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
 
   megaMenuCategories = [
     {

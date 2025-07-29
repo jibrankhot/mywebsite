@@ -6,7 +6,10 @@
             <div class="logo-box me-2"></div>
             <h2 class="mb-0 fw-bold">Minimal</h2>
         </div>
-
+        <!-- Mobile Toggle Icon -->
+        <div class="mobile-toggle d-md-none" (click)="toggleMobileMenu()" aria-label="Toggle Navigation">
+            <fa-icon [icon]="faBars"></fa-icon>
+        </div>
         <!-- Navigation -->
         <nav class="main-nav d-flex align-items-center gap-4">
             <a routerLink="/" routerLinkActive="active">Home</a>
