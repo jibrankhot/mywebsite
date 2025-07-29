@@ -3,10 +3,7 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/leo-minimal-clone"
-      }
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
@@ -16,5 +13,6 @@
     }
   ],
   "buildCommand": "npm run build",
-  "installCommand": "npm install --legacy-peer-deps"
+  "installCommand": "npm install --legacy-peer-deps",
+  "outputDirectory": "dist/leo-minimal-clone"
 }
