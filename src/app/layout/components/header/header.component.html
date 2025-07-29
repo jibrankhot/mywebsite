@@ -1,14 +1,11 @@
 <header class="main-header shadow-sm">
     <div class="container d-flex justify-content-between align-items-center py-3 position-relative">
-
-        <!-- Left Group: Hamburger + Logo -->
+        <!-- Left: Hamburger + Logo -->
         <div class="d-flex align-items-center">
-            <!-- Mobile Toggle Icon -->
             <div class="mobile-toggle d-md-none me-3" (click)="toggleMobileMenu()" aria-label="Toggle Navigation">
                 <fa-icon [icon]="isMobileMenuOpen ? faTimes : faBars"></fa-icon>
             </div>
 
-            <!-- Logo -->
             <div class="logo d-flex align-items-center">
                 <div class="logo-box me-2"></div>
                 <h2 class="mb-0 fw-bold">Minimal</h2>
@@ -16,22 +13,20 @@
         </div>
 
         <!-- Navigation -->
-        <nav class="main-nav d-flex align-items-center gap-4" [ngClass]="{ 'open': isMobileMenuOpen }"
-            (click)="isMobileMenuOpen && closeMobileMenu()">
-
-            <a routerLink="/" routerLinkActive="active">Home</a>
+        <nav class="main-nav" [ngClass]="{ 'open': isMobileMenuOpen }">
+            <a routerLink="/" routerLinkActive="active" (click)="closeMobileMenu()">Home</a>
 
             <div class="nav-item dropdown">
-                <a class="dropdown-toggle" role="button">Shop</a>
-                <ul class="dropdown-menu">
-                    <li><a routerLink="/products" routerLinkActive="active">All Products</a></li>
-                    <li><a routerLink="/categories" routerLinkActive="active">Categories</a></li>
+                <a class="dropdown-toggle" (click)="toggleDropdown('shop')" role="button">Shop</a>
+                <ul class="dropdown-menu" *ngIf="isDropdownActive('shop') || !isMobile">
+                    <li><a routerLink="/products" (click)="closeMobileMenu()">All Products</a></li>
+                    <li><a routerLink="/categories" (click)="closeMobileMenu()">Categories</a></li>
                 </ul>
             </div>
 
             <div class="nav-item dropdown mega-dropdown">
-                <a class="dropdown-toggle" role="button">New</a>
-                <div class="dropdown-menu mega-menu p-4 shadow">
+                <a class="dropdown-toggle" (click)="toggleDropdown('new')" role="button">New</a>
+                <div class="dropdown-menu mega-menu p-4 shadow" *ngIf="isDropdownActive('new') || !isMobile">
                     <div class="row gx-4">
                         <div class="col-lg-8">
                             <h6 class="fw-bold mb-3">New Products</h6>
@@ -47,7 +42,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-lg-4">
                             <h6 class="fw-bold mb-2">{{ featuredProduct.title }}</h6>
                             <img [src]="featuredProduct.img" class="img-fluid mb-2" alt="Featured Product" />
@@ -63,18 +57,18 @@
             </div>
 
             <div class="nav-item dropdown">
-                <a class="dropdown-toggle" role="button">Pages</a>
-                <ul class="dropdown-menu">
-                    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-                    <li><a routerLink="/faq" routerLinkActive="active">FAQ</a></li>
+                <a class="dropdown-toggle" (click)="toggleDropdown('pages')" role="button">Pages</a>
+                <ul class="dropdown-menu" *ngIf="isDropdownActive('pages') || !isMobile">
+                    <li><a routerLink="/about" (click)="closeMobileMenu()">About</a></li>
+                    <li><a routerLink="/faq" (click)="closeMobileMenu()">FAQ</a></li>
                 </ul>
             </div>
 
-            <a routerLink="/blog" routerLinkActive="active">Blog</a>
-            <a routerLink="/contact" routerLinkActive="active">Contact</a>
+            <a routerLink="/blog" routerLinkActive="active" (click)="closeMobileMenu()">Blog</a>
+            <a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contact</a>
         </nav>
 
-        <!-- Header Icons (Right side) -->
+        <!-- Header Icons -->
         <div class="header-icons d-flex gap-3 align-items-center">
             <fa-icon [icon]="faSearch"></fa-icon>
             <fa-icon [icon]="faHeart"></fa-icon>
