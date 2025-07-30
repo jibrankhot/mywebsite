@@ -19,14 +19,14 @@ export class HeroComponent {
             cta: 'Explore Now'
         },
         {
-            url: 'assets/banners/hero-banner1.jpg',
+            url: 'assets/banners/hero-banner3.jpg',
             title: 'Interactive Practice',
             subtitle: 'Hands-on Learning',
             description: 'Learn by doing, with real code challenges.',
             cta: 'Start Practicing'
         },
         {
-            url: 'assets/banners/hero-banner1.jpg',
+            url: 'assets/banners/hero-banner2.jpg',
             title: 'Interactive Practice',
             subtitle: 'Hands-on Learning',
             description: 'Learn by doing, with real code challenges.',

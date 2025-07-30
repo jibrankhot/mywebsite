@@ -1,6 +1,5 @@
 <div class="top-bar">
     <div class="container">
-        <!-- Left: Language Selector -->
         <div class="top-bar__left">
             <div class="language-selector">
                 <select [(ngModel)]="selectedLanguage">
@@ -9,19 +8,15 @@
             </div>
         </div>
 
-        <!-- Right: Account, Wishlist, Cart -->
         <div class="top-bar__right">
-            <!-- Account Dropdown -->
+            <!-- Login Dropdown -->
             <div class="account-menu" (mouseenter)="showAccountMenu = true" (mouseleave)="showAccountMenu = false">
                 <a href="#" class="top-link">Login</a>
-
-                <ng-container *ngIf="showAccountMenu">
-                    <div class="account-dropdown">
-                        <a href="#">My Account</a>
-                        <a href="#">Orders</a>
-                        <a href="#">Logout</a>
-                    </div>
-                </ng-container>
+                <div class="account-dropdown" *ngIf="showAccountMenu">
+                    <a href="#">My Account</a>
+                    <a href="#">Orders</a>
+                    <a href="#">Logout</a>
+                </div>
             </div>
 
             <span class="divider">|</span>
@@ -31,13 +26,11 @@
 
             <span class="divider">|</span>
 
-            <!-- Cart Icon -->
+            <!-- Cart -->
             <a href="#" class="top-link cart-icon">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-label">Cart</span>
-                <ng-container *ngIf="cartCount > 0">
-                    <span class="cart-badge">{{ cartCount }}</span>
-                </ng-container>
+                <span *ngIf="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
             </a>
         </div>
     </div>
