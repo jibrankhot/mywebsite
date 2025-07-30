@@ -217,3 +217,20 @@
     }
   }
 }
+.dropdown-menu.animated,
+.mega-menu.animated {
+  animation: fadeInDown 0.3s ease forwards;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
