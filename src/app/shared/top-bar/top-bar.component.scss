@@ -106,15 +106,34 @@
 
   // Mobile responsive
   @media (max-width: 768px) {
+    font-size: 12px;
+
     .container {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
     }
 
     &__right {
       gap: 12px;
       flex-wrap: wrap;
+
+      .top-link,
+      .cart-label {
+        font-size: 12px;
+      }
+
+      .account-dropdown {
+        font-size: 12px;
+      }
+    }
+
+    &__left {
+      .language-selector select {
+        font-size: 12px;
+      }
     }
   }
 }

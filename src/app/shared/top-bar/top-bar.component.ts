@@ -9,8 +9,8 @@ import { CartService } from '../services/cart.service';
 export class TopBarComponent implements OnInit {
     selectedLanguage = 'English';
     languages = ['English', 'French', 'German', 'Spanish'];
-    cartCount = 0;
     showAccountMenu = false;
+    cartCount = 3;
 
     constructor(private cartService: CartService) { }
 
