@@ -1,3 +1,4 @@
+
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { faSearch, faHeart, faShoppingBag, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -18,6 +19,8 @@ export class HeaderComponent {
   faBars = faBars;
   faTimes = faTimes;
 
+  isHeaderHidden = false;
+  private lastScroll = 0;
   isMobile = false;
   isMobileMenuOpen = false;
   activeDropdown: string | null = null;
@@ -60,6 +63,15 @@ export class HeaderComponent {
     }
   }
 
+  @HostListener('window:scroll')
+  onScroll() {
+    const currentScroll = window.scrollY || document.documentElement.scrollTop;
+
+    // Show only on scroll-up
+    this.isHeaderHidden = currentScroll > this.lastScroll && currentScroll > 100;
+    this.lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+  }
+
   newProducts = [
     {
       name: 'Casual Striped Shirt',
@@ -93,6 +105,7 @@ export class HeaderComponent {
     desc: 'Step into the new season with our effortlessly stylish outerwear collection, made for comfort and class.',
     img: 'assets/images/image2.webp'
   };
+
 
   onNewProductClick(product: any) {
     this.featuredProduct = {

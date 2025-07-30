@@ -4,6 +4,11 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: top 0.3s ease;
+
+  &.hidden {
+    top: -100px;
+  }
 
   .logo {
     h2 {
@@ -156,7 +161,6 @@
     z-index: 999;
   }
 
-  // ✅ Mobile
   @media (max-width: 768px) {
     .main-nav {
       position: fixed;
@@ -207,7 +211,6 @@
     }
   }
 
-  // ✅ Desktop
   @media (min-width: 769px) {
     .main-nav {
       transform: none !important;
@@ -217,6 +220,7 @@
     }
   }
 }
+
 .dropdown-menu.animated,
 .mega-menu.animated {
   animation: fadeInDown 0.3s ease forwards;
