@@ -1,4 +1,3 @@
-// hero-carousel.component.ts
 import { Component } from '@angular/core';
 import 'hammerjs';
 
@@ -12,7 +11,14 @@ export class HeroComponent {
 
     images = [
         {
-            url: 'assets/banners/hero-banner3.jpg',
+            url: 'assets/banners/hero-banner1.jpg',
+            title: 'Interactive Practice',
+            subtitle: 'Hands-on Learning',
+            description: 'Learn by doing, with real code challenges.',
+            cta: 'Start Practicing'
+        },
+        {
+            url: 'assets/banners/hero-banner2.jpg',
             title: 'Build Angular Skills',
             subtitle: 'Master Every Topic',
             description: 'Start from the fundamentals and grow step-by-step.',
@@ -20,17 +26,10 @@ export class HeroComponent {
         },
         {
             url: 'assets/banners/hero-banner3.jpg',
-            title: 'Interactive Practice',
-            subtitle: 'Hands-on Learning',
-            description: 'Learn by doing, with real code challenges.',
-            cta: 'Start Practicing'
-        },
-        {
-            url: 'assets/banners/hero-banner3.jpg',
-            title: 'Interactive Practice',
-            subtitle: 'Hands-on Learning',
-            description: 'Learn by doing, with real code challenges.',
-            cta: 'Start Practicing'
+            title: 'Real Projects',
+            subtitle: 'Learn by Doing',
+            description: 'Clone real websites and improve your frontend skills.',
+            cta: 'View Projects'
         }
     ];
 
