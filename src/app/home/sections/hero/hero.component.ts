@@ -12,7 +12,7 @@ export class HeroComponent {
 
     images = [
         {
-            url: 'assets/banners/hero-banner1.jpg',
+            url: 'assets/banners/hero-banner3.jpg',
             title: 'Build Angular Skills',
             subtitle: 'Master Every Topic',
             description: 'Start from the fundamentals and grow step-by-step.',
@@ -26,7 +26,7 @@ export class HeroComponent {
             cta: 'Start Practicing'
         },
         {
-            url: 'assets/banners/hero-banner2.jpg',
+            url: 'assets/banners/hero-banner3.jpg',
             title: 'Interactive Practice',
             subtitle: 'Hands-on Learning',
             description: 'Learn by doing, with real code challenges.',

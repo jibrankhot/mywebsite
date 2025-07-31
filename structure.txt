@@ -1,0 +1,270 @@
+Folder PATH listing for volume Angular Data
+Volume serial number is 00000060 F6D5:AB98
+G:\ANGULAR 2025\MINIMALCLONE\SRC
+³   favicon.ico
+³   index.html
+³   main.ts
+³   styles.scss
+³   
+ÃÄÄÄapp
+³   ³   app-routing.module.ts
+³   ³   app.component.html
+³   ³   app.component.scss
+³   ³   app.component.spec.ts
+³   ³   app.component.ts
+³   ³   app.module.ts
+³   ³   
+³   ÃÄÄÄauth
+³   ³       auth-routing.module.ts
+³   ³       auth.module.ts
+³   ³       
+³   ÃÄÄÄblog
+³   ³       blog-routing.module.ts
+³   ³       blog.module.ts
+³   ³       
+³   ÃÄÄÄcart
+³   ³       cart-routing.module.ts
+³   ³       cart.module.ts
+³   ³       
+³   ÃÄÄÄcore
+³   ³       core.module.ts
+³   ³       
+³   ÃÄÄÄhome
+³   ³   ³   home-routing.module.ts
+³   ³   ³   home.module.ts
+³   ³   ³   
+³   ³   ÃÄÄÄpages
+³   ³   ³   ÀÄÄÄhome-page
+³   ³   ³           home-page.component.html
+³   ³   ³           home-page.component.scss
+³   ³   ³           home-page.component.ts
+³   ³   ³           
+³   ³   ÀÄÄÄsections
+³   ³       ÃÄÄÄcategory-promo
+³   ³       ³       category-promo.component.html
+³   ³       ³       category-promo.component.scss
+³   ³       ³       category-promo.component.ts
+³   ³       ³       
+³   ³       ÃÄÄÄhero
+³   ³       ³       hero.component.html
+³   ³       ³       hero.component.scss
+³   ³       ³       hero.component.ts
+³   ³       ³       
+³   ³       ÀÄÄÄproduct-carousel
+³   ³               product-carousel.component.html
+³   ³               product-carousel.component.scss
+³   ³               product-carousel.component.ts
+³   ³               
+³   ÃÄÄÄlayout
+³   ³   ³   layout.module.ts
+³   ³   ³   
+³   ³   ÃÄÄÄcomponents
+³   ³   ³   ÃÄÄÄfooter
+³   ³   ³   ³       footer.component.html
+³   ³   ³   ³       footer.component.scss
+³   ³   ³   ³       footer.component.spec.ts
+³   ³   ³   ³       footer.component.ts
+³   ³   ³   ³       
+³   ³   ³   ÀÄÄÄheader
+³   ³   ³           header.component.html
+³   ³   ³           header.component.scss
+³   ³   ³           header.component.ts
+³   ³   ³           
+³   ³   ÀÄÄÄmain-layout
+³   ³           main-layout.component.html
+³   ³           main-layout.component.scss
+³   ³           main-layout.component.spec.ts
+³   ³           main-layout.component.ts
+³   ³           
+³   ÃÄÄÄmodels
+³   ³       product.model.ts
+³   ³       
+³   ÃÄÄÄpages
+³   ³   ÃÄÄÄabout
+³   ³   ³       about.component.html
+³   ³   ³       about.component.scss
+³   ³   ³       about.component.ts
+³   ³   ³       
+³   ³   ÃÄÄÄaccount
+³   ³   ³       account.component.html
+³   ³   ³       account.component.scss
+³   ³   ³       account.component.ts
+³   ³   ³       
+³   ³   ÃÄÄÄcart
+³   ³   ³       cart.component.html
+³   ³   ³       cart.component.scss
+³   ³   ³       cart.component.ts
+³   ³   ³       
+³   ³   ÃÄÄÄcategory
+³   ³   ³   ³   category.component.html
+³   ³   ³   ³   category.component.scss
+³   ³   ³   ³   category.component.ts
+³   ³   ³   ³   
+³   ³   ³   ÃÄÄÄproduct-grid
+³   ³   ³   ³       product-grid.component.html
+³   ³   ³   ³       product-grid.component.scss
+³   ³   ³   ³       product-grid.component.spec.ts
+³   ³   ³   ³       product-grid.component.ts
+³   ³   ³   ³       
+³   ³   ³   ÀÄÄÄsidebar-filters
+³   ³   ³           sidebar-filters.component.html
+³   ³   ³           sidebar-filters.component.scss
+³   ³   ³           sidebar-filters.component.spec.ts
+³   ³   ³           sidebar-filters.component.ts
+³   ³   ³           
+³   ³   ÃÄÄÄcheckout
+³   ³   ³       checkout.component.html
+³   ³   ³       checkout.component.scss
+³   ³   ³       checkout.component.ts
+³   ³   ³       
+³   ³   ÃÄÄÄcontact
+³   ³   ³       contact.component.html
+³   ³   ³       contact.component.scss
+³   ³   ³       contact.component.ts
+³   ³   ³       
+³   ³   ÃÄÄÄhome
+³   ³   ³   ³   home.component.html
+³   ³   ³   ³   home.component.scss
+³   ³   ³   ³   home.component.ts
+³   ³   ³   ³   
+³   ³   ³   ÃÄÄÄcategory-banner
+³   ³   ³   ³       category-banner.component.html
+³   ³   ³   ³       category-banner.component.scss
+³   ³   ³   ³       category-banner.component.spec.ts
+³   ³   ³   ³       category-banner.component.ts
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄfeatured-products
+³   ³   ³   ³       featured-products.component.html
+³   ³   ³   ³       featured-products.component.scss
+³   ³   ³   ³       featured-products.component.spec.ts
+³   ³   ³   ³       featured-products.component.ts
+³   ³   ³   ³       
+³   ³   ³   ÀÄÄÄpromotional-banner
+³   ³   ³           promotional-banner.component.html
+³   ³   ³           promotional-banner.component.scss
+³   ³   ³           promotional-banner.component.spec.ts
+³   ³   ³           promotional-banner.component.ts
+³   ³   ³           
+³   ³   ÃÄÄÄlogin
+³   ³   ³       login.component.html
+³   ³   ³       login.component.scss
+³   ³   ³       login.component.ts
+³   ³   ³       
+³   ³   ÃÄÄÄpage-not-found
+³   ³   ³       page-not-found.component.html
+³   ³   ³       page-not-found.component.scss
+³   ³   ³       page-not-found.component.ts
+³   ³   ³       
+³   ³   ÃÄÄÄproduct-detail
+³   ³   ³   ³   product-detail.component.html
+³   ³   ³   ³   product-detail.component.scss
+³   ³   ³   ³   product-detail.component.ts
+³   ³   ³   ³   
+³   ³   ³   ÃÄÄÄproduct-info
+³   ³   ³   ³       product-info.component.html
+³   ³   ³   ³       product-info.component.scss
+³   ³   ³   ³       product-info.component.spec.ts
+³   ³   ³   ³       product-info.component.ts
+³   ³   ³   ³       
+³   ³   ³   ÀÄÄÄreviews
+³   ³   ³           reviews.component.html
+³   ³   ³           reviews.component.scss
+³   ³   ³           reviews.component.spec.ts
+³   ³   ³           reviews.component.ts
+³   ³   ³           
+³   ³   ÃÄÄÄregister
+³   ³   ³       register.component.html
+³   ³   ³       register.component.scss
+³   ³   ³       register.component.ts
+³   ³   ³       
+³   ³   ÃÄÄÄsearch-results
+³   ³   ³       search-results.component.html
+³   ³   ³       search-results.component.scss
+³   ³   ³       search-results.component.ts
+³   ³   ³       
+³   ³   ÀÄÄÄwishlist
+³   ³           wishlist.component.html
+³   ³           wishlist.component.scss
+³   ³           wishlist.component.ts
+³   ³           
+³   ÃÄÄÄproducts
+³   ³       products-routing.module.ts
+³   ³       products.module.ts
+³   ³       
+³   ÀÄÄÄshared
+³       ³   shared.module.ts
+³       ³   
+³       ÃÄÄÄcomponents
+³       ³   ÃÄÄÄbanner
+³       ³   ³       banner.component.html
+³       ³   ³       banner.component.scss
+³       ³   ³       banner.component.spec.ts
+³       ³   ³       banner.component.ts
+³       ³   ³       
+³       ³   ÃÄÄÄfeatured-product
+³       ³   ³       featured-product.component.html
+³       ³   ³       featured-product.component.scss
+³       ³   ³       featured-product.component.ts
+³       ³   ³       
+³       ³   ÃÄÄÄfilter-sidebar
+³       ³   ³       filter-sidebar.component.html
+³       ³   ³       filter-sidebar.component.scss
+³       ³   ³       filter-sidebar.component.spec.ts
+³       ³   ³       filter-sidebar.component.ts
+³       ³   ³       
+³       ³   ÃÄÄÄimage-gallery
+³       ³   ³       image-gallery.component.html
+³       ³   ³       image-gallery.component.scss
+³       ³   ³       image-gallery.component.spec.ts
+³       ³   ³       image-gallery.component.ts
+³       ³   ³       
+³       ³   ÃÄÄÄproduct-card
+³       ³   ³       product-card.component.html
+³       ³   ³       product-card.component.scss
+³       ³   ³       product-card.component.spec.ts
+³       ³   ³       product-card.component.ts
+³       ³   ³       
+³       ³   ÃÄÄÄquantity-selector
+³       ³   ³       quantity-selector.component.html
+³       ³   ³       quantity-selector.component.scss
+³       ³   ³       quantity-selector.component.spec.ts
+³       ³   ³       quantity-selector.component.ts
+³       ³   ³       
+³       ³   ÀÄÄÄsection-heading
+³       ³           section-heading.component.html
+³       ³           section-heading.component.scss
+³       ³           section-heading.component.spec.ts
+³       ³           section-heading.component.ts
+³       ³           
+³       ÃÄÄÄpipes
+³       ³       replace-spaces.pipe.ts
+³       ³       
+³       ÃÄÄÄservices
+³       ³       cart.service.ts
+³       ³       
+³       ÀÄÄÄtop-bar
+³               top-bar.component.html
+³               top-bar.component.scss
+³               top-bar.component.ts
+³               
+ÀÄÄÄassets
+    ³   .gitkeep
+    ³   
+    ÃÄÄÄbanners
+    ³       hero-banner1.jpg
+    ³       hero-banner2.jpg
+    ³       hero-banner3.jpg
+    ³       
+    ÃÄÄÄcategories
+    ³       accessories.webp
+    ³       footwear.webp
+    ³       kids.webp
+    ³       men.webp
+    ³       women.webp
+    ³       
+    ÀÄÄÄimages
+            image1.webp
+            image2.webp
+            image3.webp
+            image4.webp
+            

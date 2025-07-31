@@ -1,6 +1,6 @@
+<!-- hero-carousel.component.html -->
 <div class="hero-carousel-wrapper" (click)="toggleArrows()" (swipeleft)="onSwipeLeft(carousel)"
     (swiperight)="onSwipeRight(carousel)">
-
     <ngb-carousel #carousel [showNavigationArrows]="false" [showNavigationIndicators]="true">
         <ng-template ngbSlide *ngFor="let image of images">
             <div class="banner-slide" [ngStyle]="{ 'background-image': 'url(' + image.url + ')' }">
@@ -15,6 +15,10 @@
     </ngb-carousel>
 
     <!-- Custom Arrow Controls -->
-    <button *ngIf="showArrows" class="arrow-btn left" (click)="carousel.prev(); $event.stopPropagation()">‹</button>
-    <button *ngIf="showArrows" class="arrow-btn right" (click)="carousel.next(); $event.stopPropagation()">›</button>
+    <button *ngIf="showArrows" class="arrow-btn left" (click)="carousel.prev(); $event.stopPropagation()">
+        ‹
+    </button>
+    <button *ngIf="showArrows" class="arrow-btn right" (click)="carousel.next(); $event.stopPropagation()">
+        ›
+    </button>
 </div>

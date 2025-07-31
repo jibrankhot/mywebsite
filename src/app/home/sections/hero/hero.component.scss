@@ -1,3 +1,4 @@
+/* hero-carousel.component.scss */
 .hero-carousel-wrapper {
   position: relative;
 
@@ -14,65 +15,72 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 60px;
+    padding: 0 3.75rem;
     color: #ffffff;
     flex-wrap: wrap;
 
     @media (max-width: 768px) {
-      height: 300px; // ⬅️ REDUCED height to prevent image crop
-      padding: 0 16px;
+      height: 240px; // 🔻 FINAL mobile height
+      padding: 0 1rem;
+      flex-direction: column;
     }
   }
 
   .banner-content {
-    padding: 20px;
-    max-width: 720px;
+    padding: 1.5rem;
+    max-width: 100%;
     background: transparent;
 
-    h5 {
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      margin-bottom: 10px;
+    h2 {
+      font-size: 3.5rem;
 
       @media (max-width: 768px) {
-        font-size: 14px; // ⬅️ Better mobile scale
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        margin-bottom: 0.4rem;
       }
     }
 
-    h2 {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 8px;
+    h5 {
+      font-size: 1.25rem;
 
       @media (max-width: 768px) {
-        font-size: 24px; // ⬅️ Scaled heading
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
       }
     }
 
     p {
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 16px;
+      font-size: 1.125rem;
 
       @media (max-width: 768px) {
-        font-size: 13px;
+        font-size: 0.8rem;
+        line-height: 1.4;
+        margin-bottom: 0.8rem;
       }
     }
 
     .cta-button {
-      padding: 10px 24px;
-      font-size: 14px;
-      border-radius: 30px;
-      background-color: white;
-      color: black;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.85rem;
+      border-radius: 1.8rem;
 
-      &:hover {
-        background-color: #f0f0f0;
+      @media (max-width: 768px) {
+        font-size: 0.8rem;
       }
+    }
+  }
+
+  .banner-image {
+    width: 85%;
+    max-width: 500px;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    display: block;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      width: 75%; 
     }
   }
 
@@ -80,24 +88,28 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 40px;
+    font-size: 2.5rem;
     background: transparent;
     color: #ffffff;
     border: none;
-    padding: 12px;
+    padding: 0.75rem;
     cursor: pointer;
     z-index: 1000;
 
     &.left {
-      left: 20px;
+      left: 1rem;
     }
 
     &.right {
-      right: 20px;
+      right: 1rem;
     }
 
     &:hover {
       color: #f5f5f5;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
     }
   }
 }

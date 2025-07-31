@@ -41,7 +41,7 @@
     .top-link {
       text-decoration: none;
       color: #333;
-      position: relative;
+      font-weight: 500;
       transition: color 0.2s ease;
 
       &:hover {
@@ -59,21 +59,21 @@
 
       .account-dropdown {
         position: absolute;
-        top: 26px;
+        top: 30px;
         right: 0;
         background-color: #fff;
         border: 1px solid #ddd;
-        padding: 8px 12px;
+        padding: 10px;
         min-width: 140px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         display: flex;
         flex-direction: column;
         z-index: 100;
-        flex-wrap: wrap;
 
         a {
           padding: 6px 0;
           color: #333;
+          font-size: 14px;
           text-decoration: none;
 
           &:hover {
@@ -85,6 +85,8 @@
 
     .cart-icon {
       position: relative;
+      display: flex;
+      align-items: center;
 
       .cart-badge {
         position: absolute;
@@ -95,30 +97,28 @@
         font-size: 10px;
         padding: 2px 6px;
         border-radius: 50%;
+        font-weight: bold;
       }
 
       .cart-label {
-        margin-left: 4px;
-        vertical-align: middle;
+        margin-left: 6px;
+        font-size: 14px;
       }
     }
   }
 
-  // Mobile responsive
+  // Responsive
   @media (max-width: 768px) {
     font-size: 12px;
 
     .container {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      padding: 10px;
       gap: 8px;
+      flex-direction: row;
     }
 
     &__right {
       gap: 12px;
-      flex-wrap: wrap;
 
       .top-link,
       .cart-label {
