@@ -1,3 +1,4 @@
+// featured-section.component.ts
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 })
 export class FeaturedSectionComponent implements OnInit {
     @Input() title: string = '';
-    @Input() items: { title: string; image: string }[] = [];
+    @Input() items: { title: string; image: string; link?: string }[] = [];
 
     currentIndex = 0;
     cardsPerView = 3;
@@ -17,36 +18,43 @@ export class FeaturedSectionComponent implements OnInit {
     }
 
     @HostListener('window:resize')
-    onResize() {
+    onResize(): void {
         this.updateCardsPerView();
     }
 
-    updateCardsPerView() {
+    updateCardsPerView(): void {
         const width = window.innerWidth;
         this.cardsPerView = width < 576 ? 1 : width < 992 ? 2 : 3;
+
+        // Ensure currentIndex is valid
+        const maxIndex = Math.max(0, this.totalSlides - 1);
+        if (this.currentIndex > maxIndex) {
+            this.currentIndex = maxIndex;
+        }
     }
 
-    get visibleItems() {
-        const total = this.items.length;
-        const end = this.currentIndex + this.cardsPerView;
-        if (end <= total) return this.items.slice(this.currentIndex, end);
-        return [...this.items.slice(this.currentIndex), ...this.items.slice(0, end - total)];
+    prevSlide(): void {
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+        }
     }
 
-    nextSlide() {
-        this.currentIndex = (this.currentIndex + 1) % this.items.length;
+    nextSlide(): void {
+        if (this.currentIndex < this.totalSlides - 1) {
+            this.currentIndex++;
+        }
     }
 
-    prevSlide() {
-        this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+    goToSlide(idx: number): void {
+        this.currentIndex = idx;
     }
 
-    goToSlide(index: number) {
-        this.currentIndex = index;
+    get totalSlides(): number {
+        return Math.ceil(this.items.length / this.cardsPerView);
     }
 
     get totalDots(): number[] {
-        return this.items.map((_, i) => i);
+        return Array(this.totalSlides).fill(0).map((_, i) => i);
     }
 
     get activeDotIndex(): number {
@@ -54,7 +62,11 @@ export class FeaturedSectionComponent implements OnInit {
     }
 
     get trackTransform(): string {
-        const percentage = -(this.currentIndex * (100 / this.cardsPerView));
-        return `translateX(${percentage}%)`;
+        const shift = -(this.currentIndex * 100);
+        return `translateX(${shift}%)`;
+    }
+
+    get cardFlexBasis(): string {
+        return `0 0 calc(${100 / this.cardsPerView}% - 20px)`;
     }
 }

@@ -19,13 +19,38 @@ export class HomePageComponent {
     price: '₹1,999'
   };
 
-  // ✅ Promo categories for reusable featured section
+  // Promo categories for FeaturedSectionComponent
   categoryPromoData = [
-    { title: 'Minimal Essentials', image: 'assets/images/image1.webp' },
-    { title: 'Monochrome Edit', image: 'assets/images/image2.webp' },
-    { title: 'Street Vibes', image: 'assets/images/image3.webp' },
-    { title: 'Urban Cool', image: 'assets/images/image4.webp' },
-    { title: 'Workwear', image: 'assets/images/image5.webp' }
+    {
+      id: 1,
+      title: 'Men',
+      image: 'assets/categories/men.webp',
+      link: '/category/men'
+    },
+    {
+      id: 2,
+      title: 'Women',
+      image: 'assets/categories/women.webp',
+      link: '/category/women'
+    },
+    {
+      id: 3,
+      title: 'Accessories',
+      image: 'assets/categories/accessories.webp',
+      link: '/category/accessories'
+    },
+    {
+      id: 4,
+      title: 'Shoes',
+      image: 'assets/categories/shoes.webp',
+      link: '/category/shoes'
+    },
+    {
+      id: 5,
+      title: 'Kids',
+      image: 'assets/categories/kids.webp',
+      link: '/category/kids'
+    }
   ];
 
   updateFeaturedProduct(product: Product) {

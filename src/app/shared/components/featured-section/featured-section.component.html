@@ -1,29 +1,35 @@
-<section class="category-promo py-5" data-aos="fade-up" *ngIf="items?.length">
+<section class="featured-section py-5" *ngIf="items?.length">
     <div class="container">
         <div class="section-heading text-center mb-5">
             <h2 class="section-title">{{ title }}</h2>
         </div>
 
         <div class="carousel-wrapper">
-            <button class="carousel-btn prev desktop-only" (click)="prevSlide()">‹</button>
+            <button class="carousel-btn prev desktop-only" (click)="prevSlide()" aria-label="Previous">‹</button>
 
             <div class="carousel-window">
-                <div class="carousel-track" [style.transform]="trackTransform">
-                    <div class="category-card" *ngFor="let item of visibleItems" data-aos="zoom-in-up">
-                        <img [src]="item.image" [alt]="item.title" />
-                        <h5>{{ item.title }}</h5>
-                        <a [routerLink]="['/categories', item.title.toLowerCase()]" class="btn btn-dark">Explore</a>
+                <div class="carousel-track" [style.transform]="trackTransform"
+                    [style.width.%]="items.length * (100 / cardsPerView)">
+                    <div class="category-card" *ngFor="let item of items" [style.flex]="cardFlexBasis"
+                        data-aos="zoom-in-up">
+                        <a *ngIf="item.link" [routerLink]="item.link">
+                            <img [src]="item.image" [alt]="item.title" />
+                            <h5>{{ item.title }}</h5>
+                        </a>
+                        <div *ngIf="!item.link">
+                            <img [src]="item.image" [alt]="item.title" />
+                            <h5>{{ item.title }}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <button class="carousel-btn next desktop-only" (click)="nextSlide()">›</button>
+            <button class="carousel-btn next desktop-only" (click)="nextSlide()" aria-label="Next">›</button>
         </div>
 
-        <div class="carousel-dots">
+        <div class="carousel-dots text-center mt-4">
             <span *ngFor="let dot of totalDots; let i = index" [class.active]="i === activeDotIndex"
-                (click)="goToSlide(i)">
-            </span>
+                (click)="goToSlide(i)"></span>
         </div>
     </div>
 </section>
