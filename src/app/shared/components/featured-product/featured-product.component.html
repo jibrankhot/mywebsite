@@ -1,32 +1,27 @@
-<section class="featured-product-section" *ngIf="product" [@fadeIn] role="region" aria-label="Featured Product">
+<section class="featured-product-section" *ngIf="product">
     <div class="container">
-        <div class="featured-product-wrapper">
-            <!-- Product Image -->
-            <div class="featured-img" *ngIf="product.image">
-                <img [src]="product.image" [alt]="product.name" (load)="imageLoaded = true"
-                    [class.fade-in]="imageLoaded" [style.visibility]="imageLoaded ? 'visible' : 'hidden'" />
+        <div class="row align-items-center gx-5 gy-5">
+
+            <!-- IMAGE -->
+            <div class="col-md-6 text-center text-md-start">
+                <img [src]="product.image" [alt]="product.name" class="img-fluid featured-image"
+                    (load)="imageLoaded = true" [class.fade-in]="imageLoaded" />
             </div>
 
-            <!-- Product Details -->
-            <div class="featured-details">
-                <h2>{{ product.name }}</h2>
+            <!-- DETAILS -->
+            <div class="col-md-6">
+                <div class="featured-details">
+                    <h2 class="product-title">{{ product.name }}</h2>
+                    <p class="product-description">{{ product.desc }}</p>
+                    <div class="product-price">₹{{ product.price }}</div>
 
-                <p *ngIf="product.desc; else noDesc">
-                    {{ product.desc }}
-                </p>
-                <ng-template #noDesc>
-                    <p class="no-desc">No description provided</p>
-                </ng-template>
-
-                <p class="price" *ngIf="product.price">
-                    <strong>Price:</strong> {{ product.price }}
-                </p>
-
-                <div class="btn-group">
-                    <button class="btn btn-primary">Shop Now</button>
-                    <button class="btn btn-outline" (click)="goBackToCarousel()">← Back to Products</button>
+                    <div class="btn-group mt-4">
+                        <button class="btn btn-dark px-4 py-2">Shop Now</button>
+                        <button class="btn btn-outline-dark px-4 py-2 ms-3">Learn More</button>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>

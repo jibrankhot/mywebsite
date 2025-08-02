@@ -1,0 +1,112 @@
+.featured-section {
+  background: linear-gradient(to right, #f7f7f7, #ffffff);
+  background-image: url('/assets/images/category-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .carousel-window {
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .category-card {
+    flex: 0 0 calc(100% / 3 - 20px);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    h5 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  }
+
+  .carousel-btn {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #333;
+    z-index: 2;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  .carousel-dots {
+    text-align: center;
+    margin-top: 16px;
+
+    span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 6px;
+      background-color: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &.active {
+        background-color: #333;
+      }
+    }
+  }
+
+  // Responsive Card Sizes
+  @media (max-width: 991px) {
+    .category-card {
+      flex: 0 0 calc(100% / 2 - 20px);
+    }
+  }
+
+  @media (max-width: 575px) {
+    .category-card {
+      flex: 0 0 100%;
+    }
+  }
+
+  // Hide navigation buttons on small devices
+  .desktop-only {
+    display: inline-block;
+  }
+
+  @media (max-width: 991px) {
+    .desktop-only {
+      display: none;
+    }
+  }
+}
+  

@@ -12,6 +12,7 @@ import { QuantitySelectorComponent } from './components/quantity-selector/quanti
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ToastAlertComponent } from './components/toast-alert/toast-alert.component';
+import { FeaturedSectionComponent } from './components/featured-section/featured-section.component';
 
 
 
@@ -26,7 +27,8 @@ import { ToastAlertComponent } from './components/toast-alert/toast-alert.compon
     QuantitySelectorComponent,
     BreadcrumbsComponent,
     PaginationComponent,
-    ToastAlertComponent
+    ToastAlertComponent,
+    FeaturedSectionComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,17 @@ import { ToastAlertComponent } from './components/toast-alert/toast-alert.compon
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    FeaturedProductComponent
+    FeaturedProductComponent,
+    ProductCardComponent,
+    BannerComponent,
+    SectionHeadingComponent,
+    FilterSidebarComponent,
+    ImageGalleryComponent,
+    QuantitySelectorComponent,
+    BreadcrumbsComponent,
+    PaginationComponent,
+    ToastAlertComponent,
+    FeaturedSectionComponent
   ]
 })
 export class SharedModule { }

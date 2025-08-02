@@ -19,6 +19,14 @@ export class HomePageComponent {
     price: '₹1,999'
   };
 
+  // ✅ Promo categories for reusable featured section
+  categoryPromoData = [
+    { title: 'Minimal Essentials', image: 'assets/images/image1.webp' },
+    { title: 'Monochrome Edit', image: 'assets/images/image2.webp' },
+    { title: 'Street Vibes', image: 'assets/images/image3.webp' },
+    { title: 'Urban Cool', image: 'assets/images/image4.webp' },
+    { title: 'Workwear', image: 'assets/images/image5.webp' }
+  ];
 
   updateFeaturedProduct(product: Product) {
     this.featuredProduct = {

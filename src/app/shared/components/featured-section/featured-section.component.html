@@ -1,0 +1,29 @@
+<section class="category-promo py-5" data-aos="fade-up" *ngIf="items?.length">
+    <div class="container">
+        <div class="section-heading text-center mb-5">
+            <h2 class="section-title">{{ title }}</h2>
+        </div>
+
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev desktop-only" (click)="prevSlide()">‹</button>
+
+            <div class="carousel-window">
+                <div class="carousel-track" [style.transform]="trackTransform">
+                    <div class="category-card" *ngFor="let item of visibleItems" data-aos="zoom-in-up">
+                        <img [src]="item.image" [alt]="item.title" />
+                        <h5>{{ item.title }}</h5>
+                        <a [routerLink]="['/categories', item.title.toLowerCase()]" class="btn btn-dark">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-btn next desktop-only" (click)="nextSlide()">›</button>
+        </div>
+
+        <div class="carousel-dots">
+            <span *ngFor="let dot of totalDots; let i = index" [class.active]="i === activeDotIndex"
+                (click)="goToSlide(i)">
+            </span>
+        </div>
+    </div>
+</section>
