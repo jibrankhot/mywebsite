@@ -1,11 +1,8 @@
 .hero-carousel-wrapper {
   position: relative;
 
-  .hero-carousel {
-    position: relative;
-  }
-
   .banner-slide {
+    position: relative;
     height: 460px;
     background-size: cover;
     background-position: center;
@@ -15,31 +12,42 @@
     justify-content: center;
     text-align: center;
     padding: 0 3.75rem;
-    color: #ffffff;
-    flex-wrap: wrap;
+    color: #fff;
+    overflow: hidden;
 
     @media (max-width: 768px) {
       height: 260px;
       padding: 0 1rem;
-      flex-direction: column;
     }
 
     @media (max-width: 576px) {
-      background-position: 15% center; // Adjust model image positioning
+      background-position: 15% center;
     }
 
     @media (max-width: 400px) {
       height: 220px;
     }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
   }
 
   .banner-content {
+    position: relative;
+    z-index: 2;
     padding: 1.5rem;
     max-width: 100%;
-    background: transparent;
 
     h5 {
       font-size: 1.1rem;
+      margin-bottom: 0.5rem;
 
       @media (max-width: 768px) {
         font-size: 0.95rem;
@@ -56,6 +64,7 @@
 
     h2 {
       font-size: 2.8rem;
+      margin-bottom: 0.8rem;
       line-height: 1.2;
 
       @media (max-width: 768px) {
@@ -75,6 +84,7 @@
 
     p {
       font-size: 0.95rem;
+      margin-bottom: 1rem;
 
       @media (max-width: 768px) {
         font-size: 0.85rem;
@@ -93,6 +103,15 @@
       padding: 0.6rem 1.4rem;
       font-size: 0.9rem;
       border-radius: 1.8rem;
+      background-color: #ffffff;
+      color: #333;
+      border: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #f1f1f1;
+        transform: scale(1.05);
+      }
 
       @media (max-width: 768px) {
         font-size: 0.8rem;
@@ -108,19 +127,6 @@
         font-size: 0.65rem;
         padding: 0.4rem 0.9rem;
       }
-    }
-  }
-
-  .banner-image {
-    width: 85%;
-    max-width: 500px;
-    object-fit: cover;
-    aspect-ratio: 16 / 9;
-    display: block;
-    margin: 0 auto;
-
-    @media (max-width: 768px) {
-      width: 75%;
     }
   }
 

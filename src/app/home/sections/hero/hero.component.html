@@ -1,10 +1,13 @@
 <div class="hero-carousel-wrapper" (click)="toggleArrows()" (swipeleft)="onSwipeLeft(carousel)"
     (swiperight)="onSwipeRight(carousel)">
-
     <ngb-carousel #carousel [showNavigationArrows]="false" [showNavigationIndicators]="true">
         <ng-template ngbSlide *ngFor="let image of images">
             <div class="banner-slide" [ngStyle]="{ 'background-image': 'url(' + image.url + ')' }">
-                <div class="banner-content">
+                <!-- Overlay -->
+                <div class="overlay"></div>
+
+                <!-- Content -->
+                <div class="banner-content" data-aos="fade-up">
                     <h5>{{ image.subtitle }}</h5>
                     <h2>{{ image.title }}</h2>
                     <p>{{ image.description }}</p>
@@ -14,7 +17,7 @@
         </ng-template>
     </ngb-carousel>
 
-    <!-- Arrows (only show when user clicks or swipes) -->
+    <!-- Arrows -->
     <button *ngIf="showArrows" class="arrow-btn left" (click)="carousel.prev(); $event.stopPropagation()">‹</button>
     <button *ngIf="showArrows" class="arrow-btn right" (click)="carousel.next(); $event.stopPropagation()">›</button>
 </div>
