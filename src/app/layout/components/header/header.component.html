@@ -16,20 +16,12 @@
         <nav class="main-nav" [ngClass]="{ 'open': isMobileMenuOpen }">
             <a routerLink="/" routerLinkActive="active" (click)="closeMobileMenu()">Home</a>
 
-            <div class="nav-item dropdown">
-                <a class="dropdown-toggle" (click)="toggleDropdown('shop')" role="button">Shop</a>
-                <ul class="dropdown-menu animated" *ngIf="isDropdownActive('shop') || !isMobile">
-                    <li><a routerLink="/products" (click)="closeMobileMenu()">All Products</a></li>
-                    <li><a routerLink="/categories" (click)="closeMobileMenu()">Categories</a></li>
-                </ul>
-            </div>
-
-            <!-- New Mega Dropdown (Hover Desktop, Click Mobile) -->
+            <!-- Mega Menu -->
             <div class="nav-item dropdown mega-dropdown" (mouseenter)="onHover('new')" (mouseleave)="onLeave('new')">
                 <a class="dropdown-toggle" role="button">New</a>
                 <div class="dropdown-menu mega-menu animated" *ngIf="hoveredDropdown === 'new' || isMobile">
                     <div class="row gx-4">
-                        <!-- Left: Product List -->
+                        <!-- Product list -->
                         <div class="col-lg-8">
                             <h6 class="fw-bold mb-3">New Products</h6>
                             <div class="product-list">
@@ -44,7 +36,7 @@
                             </div>
                         </div>
 
-                        <!-- Right: Featured -->
+                        <!-- Featured -->
                         <div class="col-lg-4">
                             <h6 class="fw-bold mb-2">{{ featuredProduct.title }}</h6>
                             <img [src]="featuredProduct.img" class="img-fluid mb-2" alt="Featured Product" />
@@ -59,6 +51,16 @@
                 </div>
             </div>
 
+            <!-- Shop -->
+            <div class="nav-item dropdown">
+                <a class="dropdown-toggle" (click)="toggleDropdown('shop')" role="button">Shop</a>
+                <ul class="dropdown-menu animated" *ngIf="isDropdownActive('shop') || !isMobile">
+                    <li><a routerLink="/products" (click)="closeMobileMenu()">All Products</a></li>
+                    <li><a routerLink="/categories" (click)="closeMobileMenu()">Categories</a></li>
+                </ul>
+            </div>
+
+            <!-- Pages -->
             <div class="nav-item dropdown">
                 <a class="dropdown-toggle" (click)="toggleDropdown('pages')" role="button">Pages</a>
                 <ul class="dropdown-menu animated" *ngIf="isDropdownActive('pages') || !isMobile">
@@ -82,6 +84,5 @@
         </div>
     </div>
 
-    <!-- Mobile backdrop -->
     <div class="mobile-backdrop" *ngIf="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
 </header>
