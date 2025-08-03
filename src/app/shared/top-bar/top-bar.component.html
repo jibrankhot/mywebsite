@@ -1,5 +1,6 @@
 <div class="top-bar">
     <div class="container">
+        <!-- Left: Language -->
         <div class="top-bar__left">
             <div class="language-selector">
                 <select [(ngModel)]="selectedLanguage" aria-label="Select Language">
@@ -8,10 +9,11 @@
             </div>
         </div>
 
+        <!-- Right: Links -->
         <div class="top-bar__right">
-            <!-- Login Dropdown -->
+            <!-- Login + Account Dropdown -->
             <div class="account-menu" (mouseenter)="showAccountMenu = true" (mouseleave)="showAccountMenu = false">
-                <a class="top-link" routerLink="/login">Login</a>
+                <a class="top-link">Login</a>
                 <div class="account-dropdown" *ngIf="showAccountMenu">
                     <a routerLink="/account">My Account</a>
                     <a routerLink="/orders">Orders</a>
